@@ -7,7 +7,7 @@ services:
     environment:
       REDIS_SERVER: redis
     ports:
-      - 8090:5000
+      - 8082:3000
   db:
     container_name: redis
     image: redis
