@@ -2,7 +2,7 @@ version: '3.1'
 services:
   app:
     container_name: guestbook
-    image: iesgn/guestbook-pyhton:v1
+    image: juanantpineda/guestbook-python:v1
     restart: always
     environment:
       REDIS_SERVER: redis
