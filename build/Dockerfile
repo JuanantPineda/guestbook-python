@@ -1,17 +1,8 @@
 # syntax=docker/dockerfile:1
-FROM python:3.12.1-bookworm
+FROM debian:12
 WORKDIR /usr/share/app
 COPY guestbook_python .
-ENV DB_NAME = django
-ENV DB_USER = django
-ENV DB_PASSWORD = django
-ENV DB_HOST = localhost
-ENV DJ_USER = django
-ENV DJ_PASSWORD = django
-ENV DJ_EMAIL = a@a.com
-ENV URL = http://localhost
-RUN pip install --upgrade --no-cache-dir --break-system-packages pip && pip install --no-cache-dir --break-system-packages -r requirements.txt && pip install --no-cache-dir --break-system-packages redis
-COPY script.sh /usr/local/bin/script.sh
-RUN chmod +x /usr/local/bin/script.sh
+ENV DB_REDIS redis
+RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
 EXPOSE 3000
-CMD /usr/local/bin/script.sh
+CMD python3 app.py

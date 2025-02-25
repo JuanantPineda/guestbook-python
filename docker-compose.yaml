@@ -2,12 +2,12 @@ version: '3.1'
 services:
   app:
     container_name: guestbook
-    image: iesgn/guestbook
+    image: iesgn/guestbook-pyhton:v1
     restart: always
     environment:
       REDIS_SERVER: redis
     ports:
-      - 8080:5000
+      - 8090:5000
   db:
     container_name: redis
     image: redis
